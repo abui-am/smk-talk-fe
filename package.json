@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@tanstack/react-query": "^5.35.5",
+    "@tanstack/react-query-devtools": "^5.35.5",
+>>>>>>> with-react-query
     "boxicons": "^2.1.4",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",

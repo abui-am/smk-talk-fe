@@ -3,14 +3,21 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../common/input';
 import Button from '../common/button';
+import useSignInMutation from '../../hooks/mutations/auth/useSignInMutation';
+import Cookies from 'js-cookie';
+import { TOKEN_KEY } from '../../configs/constants';
 
 function FormLogin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { mutateAsync } = useSignInMutation();
   async function handleClick() {
     try {
-      console.log(email, password);
+      const res = await mutateAsync({ email, password });
+
+      Cookies.set(TOKEN_KEY, res.data.token);
       navigate('/');
     } catch (error) {
       console.log(error);
