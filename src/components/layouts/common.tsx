@@ -4,9 +4,15 @@ import { useNavigate } from 'react-router-dom';
 function CommonLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   function handleLogout() {
-    Cookies.remove('Authorization');
+    Cookies.remove(TOKEN_KEY);
     navigate('/login');
   }
+
+  useEffect(() => {
+    if (!Cookies.get(TOKEN_KEY)) {
+      navigate('/login');
+    }
+  }, [navigate]);
   return (
     <section className='flex h-screen'>
       <div role='navigation flex-1'>
@@ -26,6 +32,8 @@ function CommonLayout({ children }: { children: React.ReactNode }) {
 }
 
 import { Link } from 'react-router-dom';
+import { TOKEN_KEY } from '../../configs/constants';
+import { useEffect } from 'react';
 
 function Sidebar() {
   return (
