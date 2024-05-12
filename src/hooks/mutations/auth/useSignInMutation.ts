@@ -8,8 +8,8 @@ const useSignInMutation = () => {
     mutationFn: async (data: { email: string; password: string }) => {
       // Make a POST request
       const response = await fetchData<
-        typeof data,
-        BackendRes<{ token: string; nip: string; name: string; id: string }>
+        BackendRes<{ token: string; nip: string; name: string; id: string }>,
+        typeof data
       >({
         data,
         method: 'POST',

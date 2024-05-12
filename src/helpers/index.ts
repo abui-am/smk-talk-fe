@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 import { TOKEN_KEY } from '../configs/constants';
 
@@ -10,14 +10,14 @@ export function cx(...args: unknown[]) {
     .trim();
 }
 
-export async function fetchData<T, P>({
+export async function fetchData<P, T = undefined>({
   method,
   url,
   data,
 }: {
   method: 'POST' | 'GET' | 'PUT' | 'DELETE';
   url: string;
-  data: T;
+  data?: T;
 }): Promise<P> {
   const response = await fetch(import.meta.env.VITE_BASE_API_URL + url, {
     method,

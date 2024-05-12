@@ -47,11 +47,11 @@ function Sidebar() {
       </section>
       <section className='mt-8'>
         <h3 className='text-xs text-neutral-600 mb-4'>Account</h3>
-        <Link className='flex items-center gap-2  mb-4' to='/account/create'>
+        <Link className='flex items-center gap-2  mb-4' to='/accounts/create'>
           <box-icon name='user-plus' size='sm'></box-icon>
           <span className='text-blueGray-400 text-sm'>Register Account</span>
         </Link>
-        <Link className='flex items-center gap-2  mb-4' to='/account'>
+        <Link className='flex items-center gap-2  mb-4' to='/accounts'>
           <box-icon name='user' size='sm'></box-icon>
           <span className='text-blueGray-400 text-sm'>Manage Account</span>
         </Link>
