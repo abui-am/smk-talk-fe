@@ -1,4 +1,3 @@
-import React from 'react';
 import CommonLayout from '../components/layouts/common';
 import FormCreateAccount from '../components/forms/create-account';
 import { useParams } from 'react-router-dom';
