@@ -13,11 +13,15 @@ function FormLogin() {
   const [password, setPassword] = useState('');
 
   const { mutateAsync } = useSignInMutation();
+
+  async function saveToken(token: string) {
+    Cookies.set(TOKEN_KEY, token);
+  }
   async function handleClick() {
     try {
       const res = await mutateAsync({ email, password });
 
-      Cookies.set(TOKEN_KEY, res.data.token);
+      saveToken(res.data.token);
       navigate('/');
     } catch (error) {
       console.log(error);

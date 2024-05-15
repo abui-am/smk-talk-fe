@@ -1,6 +1,10 @@
 import Cookies from 'js-cookie';
 
+import { Link } from 'react-router-dom';
+import { TOKEN_KEY } from '../../configs/constants';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 function CommonLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   function handleLogout() {
@@ -30,10 +34,6 @@ function CommonLayout({ children }: { children: React.ReactNode }) {
     </section>
   );
 }
-
-import { Link } from 'react-router-dom';
-import { TOKEN_KEY } from '../../configs/constants';
-import { useEffect } from 'react';
 
 function Sidebar() {
   return (
